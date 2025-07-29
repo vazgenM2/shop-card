@@ -1,0 +1,106 @@
+ body {
+            font-family: 'Inter', sans-serif;
+            background-color: #636363; /* Light grey background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .card-container { 
+            margin: 0 !important;
+        }
+        /* Custom transition for card sizing */
+        .card {
+            transition: all 0.3s ease-in-out;
+            display: flex; /* Ensure flex for centering content (though no content now) */
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Hide overflow if background image is too big */
+            border: 1px solid #d1d5db; /* Added border for visibility */
+            border-radius: 0.75rem; /* Tailwind's rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tailwind's shadow-lg */
+            cursor: pointer;
+            position: relative; /* Needed for z-index on opened card */
+
+            /* Background image properties */
+            background-size: cover; /* Cover the entire area of the card */
+            background-position: center center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+        }
+
+        /* Hover effect for cards */
+        .card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05); /* Tailwind's shadow-xl */
+        }
+
+        /* Styles for the "opened" card */
+        .card.opened {
+            z-index: 10; /* Bring to front */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* More pronounced shadow */
+        }
+
+        /* Card title styling */
+        .card-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0.75rem 1rem; /* Padding for the title */
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+            color: white;
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            width: 100%; /* Occupy full width of the card */
+            box-sizing: border-box; /* Include padding in width */
+            opacity: 0; /* Initially hidden */
+            transform: translateY(100%); /* Start off-screen */
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            border-bottom-left-radius: 0.75rem; /* Match card border-radius */
+            border-bottom-right-radius: 0.75rem; /* Match card border-radius */
+        }
+
+        /* Show title when card is opened */
+        .card.opened .card-title {
+            opacity: 1;
+            transform: translateY(0); /* Slide into view */
+        }
+
+        /* Responsive adjustments for card width */
+        @media (min-width: 805px) {
+            .card-container {
+                flex: 1 1 ;
+                padding: 0;
+                display: flex;
+                max-width: 1500px;
+                min-width: 800px;
+                flex-wrap: wrap; /* Keep cards in a single row on larger screens */
+            }
+            .card {
+                /* flex: 1 1; Adjusted base width for non-opened cards to give more room */
+                width: calc(14% - 32px); /* Max width for each card */
+                height: 320px; /* Consistent height for all cards on desktop */
+            }
+            .card.opened {
+                width: calc(44% - 32px); /* Max width for opened card */
+                height: 320px; /* Keep the same height as non-opened cards */
+            }
+        }
+        @media (max-width: 805px) {
+            .card-container {
+                flex: 1 1;
+                padding: 0;
+                display: flex;
+                flex-direction: column !important;
+                flex-wrap: wrap; /* Keep cards in a single row on larger screens */
+            }
+            .card {
+                width: 100%; /* Max width for each card */
+                height: 100px; /* Consistent height for all cards on desktop */
+            }
+            .card.opened {
+                width: 100%; /* Max width for opened card */
+                height: 200px; /* Keep the same height as non-opened cards */
+            }
+        }   
+       

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Cards Layout</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="./code.js"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+     <div class="card-container flex flex-col md:flex-row justify-center items-stretch gap-4 p-4 max-w-7xl mx-auto">
+        <!-- Card 1: Sports Car -->
+        <div class="card"
+            style="background-image: url('https://www.topgear.com/sites/default/files/2025/07/1-Lamborghini-Temerario-review-2025.jpg');"
+            aria-label="Sports Car">
+            <div class="card-title">Lamborghini</div>
+        </div>
+
+        <!-- Card 2: Classic Car -->
+        <div class="card"
+            style="background-image: url('https://mnd-assets.mynewsdesk.com/image/upload/ar_16:9,c_fill,dpr_auto,f_auto,g_auto,q_auto:good,w_746/grbjoklt8ebnabloobdd');"
+            aria-label="Classic Car">
+            <div class="card-title">BMW</div>
+        </div>
+
+        <!-- Card 3 (Opened by default): Modern Car -->
+        <div class="card opened"
+            style="background-image: url('https://cdn.rmsothebys.com/c/4/e/7/2/2/c4e722dab9d434ea70eda70411b3ac75299c9cf5.webp');"
+            aria-label="Modern Car">
+            <div class="card-title">Ferrari</div>
+        </div>
+
+        <!-- Card 4: Electric Car -->
+        <div class="card"
+            style="background-image: url('https://avatars.mds.yandex.net/get-verba/997355/2a00000187e6a56fc2d2c95326c2b0135d3c/456x342');"
+            aria-label="Electric Car">
+            <div class="card-title">Mercedes</div>
+        </div>
+
+        <!-- Card 5: Another Modern Car -->
+        <div class="card"
+            style="background-image: url('https://avatars.mds.yandex.net/get-vertis-journal/4466156/bentley-exp-100-gt-at-monterey.jpg_1710797181949/orig');"
+            aria-label="Luxury Car">
+            <div class="card-title">Bentley</div>
+        </div>
+    </div>
+
+</body>
+</html>
